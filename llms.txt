@@ -1,0 +1,43 @@
+# Halo+
+
+> Halo+ is an independent planner for Grand Canyon University (GCU) students who use Halo, GCU's learning platform. It reads a student's Halo classes, assignments, due dates, grades and announcements and shows them on one screen that says what to do next. Halo+ is an independent planner made by a student. It is not affiliated with, endorsed by, or connected to Grand Canyon University. Halo is GCU’s learning platform.
+
+Website: https://haloplus.app/
+
+## What it does
+
+- Pulls every class's assignments, discussion questions (DQs), quizzes and due dates from Halo into one list, ranked by due date, time it takes and points.
+- Reads every class announcement and puts what it asks for (a moved date, a required format, something to bring) on the assignment it is about, in the professor's words.
+- Shows Halo's real grades for every class and what the student needs on the rest of the term.
+- A private calendar link that puts every due date in Google Calendar, Apple Calendar or Outlook and keeps it up to date (on Plus).
+- Reminders and notifications for what is due; works on iPhone, iPad, Android and computers as a Home Screen web app.
+- Study tools (on the Max plan): Ask questions about your own classes, Practice (study plans, worksheets with answers, quiz me, flashcards from your class material), and Check your work against the rubric.
+
+## How it connects to Halo
+
+- A bookmark ("Sync Halo") the student clicks while logged in to halo.gcu.edu. It runs on Halo's page and never sees or asks for the student's GCU password. An optional Chrome extension syncs when the student presses Sync now (Plus), and also on its own every 3 hours while Chrome is open (Max).
+- The student reviews changes before they are applied. Assignments are still submitted in Halo; Halo+ only plans.
+- Source code is public: https://github.com/richardsgeorger-collab/school-dashboard
+
+## Plans (US dollars)
+
+- Free: $0. Works from a syllabus PDF and items you add. No Halo sync, no AI.
+- Plus: $4.99 a month. Halo sync by hand (the bookmark, or Sync now in the extension), Halo grades, announcements read for you, notifications.
+- Max: $7.99 a month. Everything in Plus, plus auto-sync every 3 hours and the AI study tools.
+- Every new account gets Max free for 7 days, no card. A friend link gives both people extra free time.
+
+## Help pages
+
+- [How to see all your GCU Halo due dates in one place](https://haloplus.app/help/gcu-halo-due-dates/): Halo lists due dates class by class. Here is how to get every GCU assignment, DQ and quiz on one list, by hand or with a tool.
+- [Halo announcements: how not to miss what your professor asks for](https://haloplus.app/help/halo-announcements/): At GCU, professors often put real requirements in Halo announcements. How to find them, what to look for, and how to keep up.
+- [GCU Halo calendar: getting your assignments into Google or Apple Calendar](https://haloplus.app/help/halo-calendar-export/): How to get GCU Halo due dates into Google Calendar, Apple Calendar or Outlook: by hand, with an .ics export, and what each way misses.
+- [Halo GCU app for iPhone and iPad: what works](https://haloplus.app/help/halo-app-iphone-ipad/): Using GCU Halo on an iPhone or iPad: the browser, adding Halo to your Home Screen, uploading files, and which apps to be careful with.
+- [Halo vs Halo+: what's the difference?](https://haloplus.app/help/halo-vs-halo-plus/): Halo is GCU's learning platform. Halo+ is an independent planner that reads from it. What each one does, and when you don't need Halo+.
+- [How to check your grades in GCU Halo, and what you need on the rest](https://haloplus.app/help/halo-grades/): Where your grades are in GCU Halo, how points-based grades work, and a simple formula for what you need on the rest of the class.
+- [Is it safe to connect a planner to GCU Halo? Passwords and privacy](https://haloplus.app/help/is-halo-plus-safe/): What to check before you connect any app to your GCU Halo account, and exactly how Halo+ handles your password and data.
+
+## Other
+
+- [Privacy](https://haloplus.app/privacy.html)
+- [Terms](https://haloplus.app/terms.html)
+- Contact: the developer, through the email on the privacy page.

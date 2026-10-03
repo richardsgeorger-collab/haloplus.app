@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GCU Halo calendar: getting your assignments into Google or Apple Calendar · Halo+</title>
+<meta name="description" content="How to get GCU Halo due dates into Google Calendar, Apple Calendar or Outlook: by hand, with an .ics export, and what each way misses." />
+<link rel="canonical" href="https://haloplus.app/help/halo-calendar-export/" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Halo+" />
+<meta property="og:title" content="GCU Halo calendar: getting your assignments into Google or Apple Calendar" />
+<meta property="og:description" content="How to get GCU Halo due dates into Google Calendar, Apple Calendar or Outlook: by hand, with an .ics export, and what each way misses." />
+<meta property="og:url" content="https://haloplus.app/help/halo-calendar-export/" />
+<meta property="og:image" content="https://haloplus.app/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+<style>:root{--bg:#f6f7f9;--card:#fff;--ink:#14171c;--ink-2:#4b5261;--line:#e3e6eb;--accent:#b8860b;--accent-soft:#fbf3dd}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0d10;--card:#14171c;--ink:#f2f4f7;--ink-2:#a9b0bc;--line:#262a31;--accent:#f0b941;--accent-soft:#2a2414}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 64px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}
+.brand{font:800 18px/1 "Plus Jakarta Sans",Inter,sans-serif;color:var(--ink);text-decoration:none}.brand span{color:var(--accent)}
+.cta{display:inline-block;padding:8px 14px;border-radius:999px;background:var(--accent);color:#14171c;font-weight:600;text-decoration:none;font-size:14px}
+.crumb{font-size:14px;color:var(--ink-2);margin:0 0 6px}.crumb a{color:inherit}
+h1{font:800 clamp(28px,6vw,38px)/1.15 "Plus Jakarta Sans",Inter,sans-serif;letter-spacing:-.02em;margin:0 0 16px}
+h2{font:700 20px/1.3 "Plus Jakarta Sans",Inter,sans-serif;margin:36px 0 10px}
+p,li,td,th{color:var(--ink-2)}b,strong,th[scope=row]{color:var(--ink)}a{color:var(--ink)}
+.short{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:16px 18px;color:var(--ink);font-size:17px}
+.fits{background:var(--accent-soft);border-radius:12px;padding:16px 18px}.fits p{color:var(--ink);margin:0}
+ol,ul{padding-left:22px}li{margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:15px;display:block;overflow-x:auto}th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}thead th{color:var(--ink)}
+dl dt{font-weight:600;color:var(--ink);margin-top:18px}dl dd{margin:4px 0 0;color:var(--ink-2)}
+.more{list-style:none;padding:0}.more li{margin:8px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:14px}footer p{margin:6px 0}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Halo+","alternateName":"Halo Plus","url":"https://haloplus.app/","applicationCategory":"EducationalApplication","operatingSystem":"Web, iOS, Android","description":"A planner for GCU students that reads Halo: classes, assignments, grades and announcements on one screen that says what to do next. Independent, not affiliated with Grand Canyon University.","image":"https://haloplus.app/og.png","offers":[{"@type":"Offer","name":"Free","price":"0","priceCurrency":"USD"},{"@type":"Offer","name":"Plus","price":"4.99","priceCurrency":"USD"},{"@type":"Offer","name":"Max","price":"7.99","priceCurrency":"USD"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I subscribe to my GCU Halo due dates in Google Calendar?","acceptedAnswer":{"@type":"Answer","text":"We have not found a subscribe link in Halo. The usual ways are adding dates by hand or importing an .ics file exported with a browser extension, which is a one-time copy."}},{"@type":"Question","name":"Will imported events update when a due date changes?","acceptedAnswer":{"@type":"Answer","text":"No. An imported .ics file is a snapshot. Delete and re-import it after dates change, or use a tool that re-reads Halo."}},{"@type":"Question","name":"What time zone are Halo due dates in?","acceptedAnswer":{"@type":"Answer","text":"GCU is in Arizona, which does not observe daylight saving time. Check the time of each deadline against where you are."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Halo+","item":"https://haloplus.app/"},{"@type":"ListItem","position":2,"name":"Help","item":"https://haloplus.app/help/"},{"@type":"ListItem","position":3,"name":"GCU Halo calendar: getting your assignments into Google or Apple Calendar","item":"https://haloplus.app/help/halo-calendar-export/"}]}</script>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" href="/">Halo<span>+</span></a><a class="cta" href="/#/start">Try Halo+ free</a></header>
+<main>
+<p class="crumb"><a href="/help/">Help for GCU Halo</a></p>
+<h1>GCU Halo calendar: getting your assignments into Google or Apple Calendar</h1>
+<p class="short">As far as we can tell, Halo doesn't have a built-in link to subscribe to your due dates in another calendar. You can add them by hand, or export them as an .ics calendar file with a free browser extension and import that file. Either way, the copy in your calendar doesn't change when a date changes in Halo, so you still need to watch announcements.</p>
+<h2>Option 1: by hand</h2>
+<p>Make an all-day event or a timed event for each due date, with the class code in the title ("ENG-105: Rhetorical analysis draft"). Add a reminder a day or two before. It's tedious, but it's reliable and you'll actually read every assignment along the way.</p>
+<h2>Option 2: export an .ics file</h2>
+<p>Better Halo, a free independent Chrome extension, adds an <b>Export Assignments</b> button to Halo that downloads your assignments as an .ics file. Then import it:</p>
+<ul>
+<li><b>Google Calendar</b> (on a computer): Settings → Import &amp; export → Import, pick the file and the calendar to put it in.</li>
+<li><b>Apple Calendar</b> (Mac): File → Import, pick the file.</li>
+<li><b>Outlook</b>: Add calendar → Upload from file.</li>
+</ul>
+<p>Make a separate calendar called something like "School" first, so you can delete and re-import it cleanly when dates change.</p>
+<h2>What a calendar copy misses</h2>
+<p>An imported file is a snapshot. It won't know when a professor moves a date, it has no grades or points, and it doesn't include what announcements ask for. Re-import every week or two, and keep reading announcements.</p>
+<h2>Where Halo+ fits</h2>
+<div class="fits"><p>Halo+ keeps your Halo work in its own calendar (month and day-by-day views), and each sync re-reads Halo, so a moved date moves. It can also put every due date into Google Calendar, Apple Calendar or Outlook through a private link you add once: Apple and Outlook re-read it about every hour, Google a few times a day. The calendar views are free; Halo sync and the calendar link are part of Plus ($4.99 a month), with Max free for 7 days when you sign up.</p></div>
+<h2>Questions</h2>
+<dl>
+<dt>Can I subscribe to my GCU Halo due dates in Google Calendar?</dt><dd>We have not found a subscribe link in Halo. The usual ways are adding dates by hand or importing an .ics file exported with a browser extension, which is a one-time copy.</dd>
+<dt>Will imported events update when a due date changes?</dt><dd>No. An imported .ics file is a snapshot. Delete and re-import it after dates change, or use a tool that re-reads Halo.</dd>
+<dt>What time zone are Halo due dates in?</dt><dd>GCU is in Arizona, which does not observe daylight saving time. Check the time of each deadline against where you are.</dd>
+</dl>
+<h2>More help</h2>
+<ul class="more">
+<li><a href="/help/gcu-halo-due-dates/">How to see all your GCU Halo due dates in one place</a></li>
+<li><a href="/help/halo-announcements/">Halo announcements: how not to miss what your professor asks for</a></li>
+<li><a href="/help/halo-app-iphone-ipad/">Halo GCU app for iPhone and iPad: what works</a></li>
+<li><a href="/help/halo-vs-halo-plus/">Halo vs Halo+: what's the difference?</a></li>
+<li><a href="/help/halo-grades/">How to check your grades in GCU Halo, and what you need on the rest</a></li>
+<li><a href="/help/is-halo-plus-safe/">Is it safe to connect a planner to GCU Halo? Passwords and privacy</a></li>
+</ul>
+</main>
+<footer>
+<p>Halo+ is an independent planner made by a student. It is not affiliated with, endorsed by, or connected to Grand Canyon University. Halo is GCU’s learning platform.</p>
+<p><a href="/help/">Help</a> · <a href="/">Halo+</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+import{Mt as e}from"./Icons-vLrCf3Al.js";var t=e();function n({value:e,options:n,onChange:r,label:i}){return(0,t.jsx)(`div`,{className:`segmented`,role:`group`,"aria-label":i,children:n.map(n=>(0,t.jsx)(`button`,{type:`button`,"aria-pressed":n.value===e,onClick:()=>r(n.value),children:n.label},n.value))})}export{n as t};
