@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://haloplus.app/sitemap.xml
