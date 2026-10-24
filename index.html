@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon-48.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="./favicon-96.png" sizes="96x96" type="image/png" />
+    <link rel="icon" href="./favicon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- The font stylesheet loads without blocking the first paint: text shows in the system face, then swaps. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <title>Halo+: the planner built for Halo</title>
+    <meta name="description" content="Every GCU Halo deadline in one place, even the ones hidden in announcements. Your classes, assignments, grades and every announcement on one screen that says what to do next. Syncs itself; never your password. Independent, not affiliated with GCU." />
+    <link rel="canonical" href="https://haloplus.app/" />
+    <!-- What a pasted link shows in a group chat, Discord, Reddit or a text: the promise and the picture. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Halo+" />
+    <meta property="og:title" content="Halo+: the planner built for Halo" />
+    <meta property="og:description" content="Every GCU Halo deadline in one place, even the ones hidden in announcements. One screen that says what to do next. Syncs itself; never your password." />
+    <meta property="og:url" content="https://haloplus.app/" />
+    <meta property="og:image" content="https://haloplus.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Halo+: Every GCU deadline in one place. Even the ones hidden in announcements." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Halo+: the planner built for Halo" />
+    <meta name="twitter:description" content="Every GCU Halo deadline in one place, even the ones hidden in announcements. Syncs itself; never your password." />
+    <meta name="twitter:image" content="https://haloplus.app/og.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Halo+",
+        "alternateName": "Halo Plus",
+        "url": "https://haloplus.app/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "description": "The planner built for Halo: your GCU classes, assignments, grades and every announcement on one screen that says what to do next. Independent, not affiliated with Grand Canyon University.",
+        "image": "https://haloplus.app/og.png"
+      }
+    </script>
+    <!-- The landing page's Questions, as structured data; src/landing/meta.test.ts keeps the two in step. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Does it need my GCU password?", "acceptedAnswer": { "@type": "Answer", "text": "No, and it never asks. It uses the Halo session already in your browser, and its code is public." } },
+          { "@type": "Question", "name": "Is this from GCU?", "acceptedAnswer": { "@type": "Answer", "text": "No. Halo+ is an independent planner made by a student, not affiliated with Grand Canyon University." } },
+          { "@type": "Question", "name": "What happens to my data?", "acceptedAnswer": { "@type": "Answer", "text": "It is yours. Export it or delete all of it any time." } },
+          { "@type": "Question", "name": "Does it work on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add it to your Home Screen and it works like an app." } }
+        ]
+      }
+    </script>
+    <!-- The landing page is pre-rendered into #root for search engines and first paint (vite.config.ts). Anyone
+         returning (signed in, local classes, or any #/ address) gets the app, so the pre-rendered page stays hidden for them. -->
+    <script>
+      try {
+        var h = location.hash;
+        var ls = window.localStorage, back = false;
+        for (var i = 0; i < ls.length; i++) {
+          var k = ls.key(i) || '';
+          if (/^sb-[a-z0-9]+-auth-token$/.test(k) || (k === 'school-dashboard:v1' && /"courses":\[\{/.test(ls.getItem(k) || ''))) back = true;
+        }
+        if ((h && h !== '#' && h !== '#/') || back) document.documentElement.className += ' booting-app';
+      } catch (e) {}
+    </script>
+    <style>
+      .booting-app #root > .prerendered { visibility: hidden; }
+    </style>
+    <script type="module" crossorigin src="/assets/index-CHKkn52D.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Dd_uD5pT.js">
+    <link rel="modulepreload" crossorigin href="/assets/client-Cz-rSoF7.js">
+    <link rel="modulepreload" crossorigin href="/assets/dates-DORm9gv9.js">
+    <link rel="modulepreload" crossorigin href="/assets/types-BsBEokEC.js">
+    <link rel="modulepreload" crossorigin href="/assets/scope-CEwq_zcc.js">
+    <link rel="modulepreload" crossorigin href="/assets/router-CtybPWzR.js">
+    <link rel="modulepreload" crossorigin href="/assets/Modal-Yaj7JyWi.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCan-DEiuqxdB.js">
+    <link rel="modulepreload" crossorigin href="/assets/floor-BlG1daVx.js">
+    <link rel="modulepreload" crossorigin href="/assets/support-HicqsXAL.js">
+    <link rel="modulepreload" crossorigin href="/assets/db-DLQtDsUL.js">
+    <link rel="modulepreload" crossorigin href="/assets/preload-helper-Czpn1I53.js">
+    <link rel="modulepreload" crossorigin href="/assets/Requirements-Cc-038Nn.js">
+    <link rel="modulepreload" crossorigin href="/assets/context-DjnAiWqD.js">
+    <link rel="modulepreload" crossorigin href="/assets/db-DIfubOj7.js">
+    <link rel="modulepreload" crossorigin href="/assets/CourseChip-CHZgjFnv.js">
+    <link rel="modulepreload" crossorigin href="/assets/heroFacts-DqD4Pbsn.js">
+    <link rel="modulepreload" crossorigin href="/assets/concepts-DAdzJGwx.js">
+    <link rel="modulepreload" crossorigin href="/assets/links-cHpBbTOt.js">
+    <link rel="modulepreload" crossorigin href="/assets/format-CPhHJ5-S.js">
+    <link rel="modulepreload" crossorigin href="/assets/search-DhhysTaJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/upcoming-D6k0uFVg.js">
+    <link rel="modulepreload" crossorigin href="/assets/starter-CFTyAZIr.js">
+    <link rel="modulepreload" crossorigin href="/assets/client-Dmtx2Ad_.js">
+    <link rel="modulepreload" crossorigin href="/assets/WorkPanel-nCage1vR.js">
+    <link rel="modulepreload" crossorigin href="/assets/ItemDetail-DvM30CWW.js">
+    <link rel="modulepreload" crossorigin href="/assets/handoff-DgXkAWJt.js">
+    <link rel="modulepreload" crossorigin href="/assets/maxState-C3LoLQ7u.js">
+    <link rel="modulepreload" crossorigin href="/assets/PlanWall-C_vvb1zC.js">
+    <link rel="modulepreload" crossorigin href="/assets/device-D23wP7M8.js">
+    <link rel="modulepreload" crossorigin href="/assets/HowYouSync-HgJY1Ap2.js">
+    <link rel="modulepreload" crossorigin href="/assets/SyncedLine-C2NgU7Ab.js">
+    <link rel="modulepreload" crossorigin href="/assets/pdfText-Dd94il2O.js">
+    <link rel="modulepreload" crossorigin href="/assets/pptx-FoGg_gbH.js">
+    <link rel="modulepreload" crossorigin href="/assets/ingest-BblKCnVi.js">
+    <link rel="modulepreload" crossorigin href="/assets/db-CRcUd1x9.js">
+    <link rel="modulepreload" crossorigin href="/assets/run-9LMcLv5d.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-xu7agEHM.css">
+  </head>
+  <body>
+    <div id="root"><div class="prerendered"><div class="landing lp"><header class="lp-head"><a class="brand" href="#/" aria-label="Halo+"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" data-icon="" width="24" height="24"><path d="M19.73 9.93A8 8 0 1 1 14.07 4.27" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"></path><path d="M17.66 3.5v5.7M14.8 6.35h5.7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path></svg></span><span class="brand-text">Halo+</span></a><nav class="lp-nav" aria-label="Site"><a class="lp-link" href="./updates/">Updates</a><a class="btn" href="#/login">Log in</a><a class="btn primary" href="#/start">Try it now</a></nav></header><section class="lp-hero" aria-label="What Halo+ is"><div class="lp-copy"><h1 class="lp-title">Never miss a GCU deadline.</h1><p class="lp-sub">Halo+ reads your Halo classes and every announcement, then shows you the one thing to do next.</p><div class="lp-cta"><a class="btn primary lp-big" href="#/start">Try it now</a><a class="btn lp-big" href="#/login">Log in</a></div></div><div class="lp-live" aria-label="Try Halo+: check off the top item"><div class="now lp-now"><header class="now-head"><div><p class="eyebrow">Maya’s Tuesday</p><h2 class="now-title">3 things need you.</h2></div><div class="now-ring" aria-hidden="true"><svg class="ring" viewBox="0 0 44 44" width="48" height="48" data-done="false"><circle class="ring-track" cx="22" cy="22" r="18"></circle><circle class="ring-fill" cx="22" cy="22" r="18" stroke-dasharray="113.1" stroke-dashoffset="113.1"></circle></svg><span class="now-ring-label">0/3</span></div></header><section class="hero lp-hero-card" data-state="work" style="--course:#3B7DD8"><div class="hero-top"><span class="hero-eyebrow"><span class="chip" style="--course:#3B7DD8"><span class="dot"></span>BIO-181L</span><span class="hero-kind">Quiz</span></span></div><h3 class="hero-title">Lab 4 Prelab Quiz</h3><p class="hero-why">Due before lab. Only Dr. Morales’s announcement says so.</p><p class="hero-meta"><span class="pill">10 pts</span><span class="pill">~20m</span><span class="pill">due 11:59 PM</span></p><div class="hero-actions"><button type="button" class="btn primary lp-done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="" width="14" height="14"><path d="M5 12.5 10 17 19 7"></path></svg> Done</button><span class="lp-try" aria-hidden="true">← try it</span></div></section><section class="then"><h3 class="section-title">Then</h3><ul class="item-list"><li class="lp-rise"><span class="row" style="--course:#7A5AD0"><span class="dot" aria-hidden="true"></span><span class="row-body"><span class="row-title">Quiz 2: Derivatives</span><span class="row-meta">MAT-250 · Thu</span></span></span></li><li class="lp-rise"><span class="row" style="--course:#D9534F"><span class="dot" aria-hidden="true"></span><span class="row-body"><span class="row-title">Topic 3 DQ 1: Memory</span><span class="row-meta">PSY-102 · Wed</span></span></span></li></ul></section></div></div></section><section class="lp-bento" aria-label="What it does"><article class="lp-tile" data-wide="true"><div class="lp-visual"><div class="lp-caught" aria-hidden="true"><div class="lp-ann"><span class="lp-ann-from">BIO-181L · Dr. Morales</span><p>Lab 4 is Thursday. <mark>Bring goggles</mark> or no entry.</p></div><span class="lp-fly">Bring goggles</span><div class="lp-assign"><span class="lp-assign-title">Lab 4: Photosynthesis</span><span class="lp-assign-meta">BIO-181L · Thu · 30 pts</span><span class="lp-req"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="" width="14" height="14"><path d="M5 12.5 10 17 19 7"></path></svg> Goggles, or no entry</span></div></div></div><h3>Catches what’s hidden in announcements</h3><p>Announcement-only rules land on the assignment.</p></article><article class="lp-tile"><div class="lp-visual"><div class="lp-next" aria-hidden="true"><span class="lp-next-eyebrow">Do now</span><span class="lp-next-title">Quiz 2: Derivatives</span><span class="lp-next-meta">MAT-250 · Thu · 40 pts · ~2h</span><span class="btn primary lp-next-btn">Start</span></div></div><h3>Knows what’s next</h3><p>Ranked by due date, real time and points.</p></article><article class="lp-tile"><div class="lp-visual"><div class="lp-grades" aria-hidden="true"><div class="lp-grade"><svg viewBox="0 0 36 36" width="34" height="34"><circle cx="18" cy="18" r="15" class="lp-grade-track"></circle><circle cx="18" cy="18" r="15" class="lp-grade-fill" stroke-dasharray="87.60600000000001 94.2"></circle></svg><span class="lp-grade-code">BIO-181</span><span class="lp-grade-letter">A</span></div><div class="lp-grade"><svg viewBox="0 0 36 36" width="34" height="34"><circle cx="18" cy="18" r="15" class="lp-grade-track"></circle><circle cx="18" cy="18" r="15" class="lp-grade-fill" stroke-dasharray="79.128 94.2"></circle></svg><span class="lp-grade-code">MAT-250</span><span class="lp-grade-letter">B</span></div><div class="lp-grade"><svg viewBox="0 0 36 36" width="34" height="34"><circle cx="18" cy="18" r="15" class="lp-grade-track"></circle><circle cx="18" cy="18" r="15" class="lp-grade-fill" stroke-dasharray="84.78 94.2"></circle></svg><span class="lp-grade-code">PSY-102</span><span class="lp-grade-letter">A-</span></div><div class="lp-cook"><span class="lp-cook-label">Cooked meter · MAT-250</span><span class="lp-cook-track"><span class="lp-cook-fill"></span></span></div></div></div><h3>Your real grades</h3><p>Every class, and how cooked your week is.</p></article><article class="lp-tile" data-wide="true"><div class="lp-visual"><div class="lp-halo" aria-hidden="true"><div class="lp-halo-bar"></div><div class="lp-halo-cards"><div class="lp-halo-card"><b>MAT-250-TR1030A</b><em>Halo+ · 2 due this week</em></div><div class="lp-halo-card"><b>BIO-181L-R100P</b><em data-tone="gold">Halo+ · 1 with extra requirements</em></div></div><span class="lp-pill"><span class="lp-pill-mark"></span><span class="lp-pill-short">Next: Quiz 2 Thu</span><span class="lp-pill-long">Next up: Quiz 2: Derivatives · Thu · 40 pts</span></span></div></div><h3>Right inside Halo</h3><p>A small pill on Halo says what’s next.</p></article><article class="lp-tile"><div class="lp-visual"><div class="lp-phone" aria-hidden="true"><div class="lp-phone-screen"><b>2 things need you.</b><span class="lp-phone-row" style="--course:#3B7DD8"><i></i><span>Lab 4 Prelab Quiz<small>tonight</small></span></span><span class="lp-phone-row" style="--course:#7A5AD0"><i></i><span>Quiz 2: Derivatives<small>Thu</small></span></span><span class="lp-phone-row" style="--course:#D9534F"><i></i><span>Topic 3 DQ 1<small>Wed</small></span></span></div></div></div><h3>On your phone</h3><p>Add it to your Home Screen.</p></article><article class="lp-tile"><div class="lp-visual"><div class="lp-sync" aria-hidden="true"><span class="lp-sync-ring"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" data-icon="" width="24" height="24"><path d="M19.73 9.93A8 8 0 1 1 14.07 4.27" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"></path><path d="M17.66 3.5v5.7M14.8 6.35h5.7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path></svg></span><span class="lp-sync-line"><b>Synced 9:12 AM</b><small>next around 12:12 PM</small></span></div></div><h3>Syncs on its own</h3><p>Every 3 hours. Never your password.</p></article><article class="lp-tile" data-wide="true"><div class="lp-visual"><div class="lp-ask" aria-hidden="true"><p class="lp-q">Can I use a calculator on Quiz 2?</p><p class="lp-a">A scientific one only, no graphing calculators (Prof. Whitaker, Monday’s announcement).</p></div></div><h3>Ask anything about your classes</h3><p>Answers from your own class material.</p></article><article class="lp-tile" data-wide="true"><div class="lp-visual"><div class="lp-yours"><button type="button" class="lp-mode" aria-label="Switch light and dark"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="" width="20" height="20"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path></svg></span>Dark</button><div class="lp-swatches" role="radiogroup" aria-label="Color"><button type="button" role="radio" aria-checked="true" aria-label="Gold" class="lp-swatch" style="--sw:#dfa321"></button><button type="button" role="radio" aria-checked="false" aria-label="Blue" class="lp-swatch" style="--sw:#3f7fee"></button><button type="button" role="radio" aria-checked="false" aria-label="Green" class="lp-swatch" style="--sw:#2f9e5b"></button><button type="button" role="radio" aria-checked="false" aria-label="Rose" class="lp-swatch" style="--sw:#e0507a"></button><button type="button" role="radio" aria-checked="false" aria-label="Violet" class="lp-swatch" style="--sw:#7b5cf0"></button><button type="button" role="radio" aria-checked="false" aria-label="Teal" class="lp-swatch" style="--sw:#1f9aa8"></button></div></div></div><h3>Make it yours</h3><p>Light or dark, your color.</p></article></section><section class="lp-steps" aria-label="Set up"><h2 class="lp-h2">Set up in 2 minutes</h2><ol><li><span class="lp-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="" width="20" height="20"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 19.5a7 7 0 0 1 14 0"></path></svg></span>Sign up</li><li><span class="lp-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="" width="18" height="18"><path d="M12 5v14M5 12h14"></path></svg></span>Add to Chrome</li><li><span class="lp-step-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="" width="14" height="14"><path d="M5 12.5 10 17 19 7"></path></svg></span>Done</li></ol></section><section class="lp-close" aria-label="Start"><h2 class="lp-h2">Your next deadline is already in Halo.</h2><a class="btn primary lp-big" href="#/start">Try it now</a></section><section class="landing-section landing-faq" aria-label="Questions"><h2 class="lp-h2">Questions</h2><dl><div><dt>Does it need my GCU password?</dt><dd>No, and it never asks. It uses the Halo session already in your browser, and its code is public.</dd></div><div><dt>Is this from GCU?</dt><dd>No. Halo+ is an independent planner made by a student, not affiliated with Grand Canyon University.</dd></div><div><dt>What happens to my data?</dt><dd>It is yours. Export it or delete all of it any time.</dd></div><div><dt>Does it work on my phone?</dt><dd>Yes. Add it to your Home Screen and it works like an app.</dd></div></dl></section><footer class="landing-foot"><p>Halo+ is independent and not affiliated with GCU. No GCU marks are used.</p><nav><a class="landing-help" href="./help/">Help</a> · <a href="./updates/">Updates</a> · <a href="./plans/">Plans</a> · <a href="mailto:richards.georger@gmail.com?subject=Halo%2B">Contact</a> · <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="https://github.com/richardsgeorger-collab/school-dashboard" rel="noopener">Code</a> · <a href="#/login">Log in</a></nav></footer></div></div></div>
+  </body>
+</html>
