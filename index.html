@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0d10" media="(prefers-color-scheme: dark)" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon-48.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="./favicon-96.png" sizes="96x96" type="image/png" />
+    <link rel="icon" href="./favicon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- The font stylesheet loads without blocking the first paint: text shows in the system face, then swaps. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <title>Halo+: the planner built for Halo</title>
+    <meta name="description" content="Every GCU Halo deadline in one place, even the ones hidden in announcements. Your classes, assignments, grades and every announcement on one screen that says what to do next. Syncs itself; never your password. Independent, not affiliated with GCU." />
+    <link rel="canonical" href="https://haloplus.app/" />
+    <!-- What a pasted link shows in a group chat, Discord, Reddit or a text: the promise and the picture. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Halo+" />
+    <meta property="og:title" content="Halo+: the planner built for Halo" />
+    <meta property="og:description" content="Every GCU Halo deadline in one place, even the ones hidden in announcements. One screen that says what to do next. Syncs itself; never your password." />
+    <meta property="og:url" content="https://haloplus.app/" />
+    <meta property="og:image" content="https://haloplus.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Halo+: Every GCU deadline in one place. Even the ones hidden in announcements." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Halo+: the planner built for Halo" />
+    <meta name="twitter:description" content="Every GCU Halo deadline in one place, even the ones hidden in announcements. Syncs itself; never your password." />
+    <meta name="twitter:image" content="https://haloplus.app/og.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Halo+",
+        "alternateName": "Halo Plus",
+        "url": "https://haloplus.app/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "description": "The planner built for Halo: your GCU classes, assignments, grades and every announcement on one screen that says what to do next. Independent, not affiliated with Grand Canyon University.",
+        "image": "https://haloplus.app/og.png"
+      }
+    </script>
+    <!-- The landing page's Questions, as structured data; src/landing/meta.test.ts keeps the two in step. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Does it need my GCU password?", "acceptedAnswer": { "@type": "Answer", "text": "No, and it never asks. The Chrome extension reads only your own classes, grades and announcements, and only while you’re already logged in to Halo in that browser. It sends them to your own Halo+ account, and its code is public so anyone can check." } },
+          { "@type": "Question", "name": "Is this from GCU?", "acceptedAnswer": { "@type": "Answer", "text": "No. Halo+ is an independent planner made by a student, not affiliated with Grand Canyon University." } },
+          { "@type": "Question", "name": "What happens to my data?", "acceptedAnswer": { "@type": "Answer", "text": "It is yours. It is never sold or shared with advertisers, and you can export or delete all of it any time." } },
+          { "@type": "Question", "name": "Does it work on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add it to your Home Screen and it works like an app." } }
+        ]
+      }
+    </script>
+    <!-- The landing page is pre-rendered into #root for search engines and first paint (vite.config.ts). Anyone
+         returning (signed in, local classes, or any #/ address) gets the app, so the pre-rendered page stays hidden for them. -->
+    <script>
+      try {
+        var h = location.hash;
+        var ls = window.localStorage, back = false;
+        for (var i = 0; i < ls.length; i++) {
+          var k = ls.key(i) || '';
+          if (/^sb-[a-z0-9]+-auth-token$/.test(k) || (k === 'school-dashboard:v1' && /"courses":\[\{/.test(ls.getItem(k) || ''))) back = true;
+        }
+        if ((h && h !== '#' && h !== '#/') || back) document.documentElement.className += ' booting-app';
+        // A signed-out phone or tablet (the extension cannot go there) gets the phone screen first (Loop 294).
+        var ua = navigator.userAgent;
+        if (!back && (/iPhone|iPod|iPad|Android|Mobile/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1))) document.documentElement.className += ' hp-phone';
+      } catch (e) {}
+    </script>
+    <style>
+      .booting-app #root > .prerendered { visibility: hidden; }
+    </style>
+    <script type="module" crossorigin src="/assets/index-DM1V7dFx.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Dd_uD5pT.js">
+    <link rel="modulepreload" crossorigin href="/assets/client-CctdQNfm.js">
+    <link rel="modulepreload" crossorigin href="/assets/dates-DORm9gv9.js">
+    <link rel="modulepreload" crossorigin href="/assets/types-BsBEokEC.js">
+    <link rel="modulepreload" crossorigin href="/assets/scope-CEwq_zcc.js">
+    <link rel="modulepreload" crossorigin href="/assets/router-Dcw7R9f3.js">
+    <link rel="modulepreload" crossorigin href="/assets/CourseChip-BMr-EVir.js">
+    <link rel="modulepreload" crossorigin href="/assets/useCan-B4nvh1di.js">
+    <link rel="modulepreload" crossorigin href="/assets/floor-BlG1daVx.js">
+    <link rel="modulepreload" crossorigin href="/assets/preload-helper-Czpn1I53.js">
+    <link rel="modulepreload" crossorigin href="/assets/Requirements-Da49FtJf.js">
+    <link rel="modulepreload" crossorigin href="/assets/support-HicqsXAL.js">
+    <link rel="modulepreload" crossorigin href="/assets/db-DLQtDsUL.js">
+    <link rel="modulepreload" crossorigin href="/assets/context-Bftlh58E.js">
+    <link rel="modulepreload" crossorigin href="/assets/db-DIfubOj7.js">
+    <link rel="modulepreload" crossorigin href="/assets/heroFacts-DpkZ8ZfX.js">
+    <link rel="modulepreload" crossorigin href="/assets/concepts-CAAtMpOS.js">
+    <link rel="modulepreload" crossorigin href="/assets/links-cHpBbTOt.js">
+    <link rel="modulepreload" crossorigin href="/assets/format-CPhHJ5-S.js">
+    <link rel="modulepreload" crossorigin href="/assets/search-DhhysTaJ.js">
+    <link rel="modulepreload" crossorigin href="/assets/upcoming-CoWIw6G5.js">
+    <link rel="modulepreload" crossorigin href="/assets/WorkPanel-Cpq6_VJu.js">
+    <link rel="modulepreload" crossorigin href="/assets/ItemDetail-DkCizuj3.js">
+    <link rel="modulepreload" crossorigin href="/assets/handoff-DgXkAWJt.js">
+    <link rel="modulepreload" crossorigin href="/assets/maxState-C3LoLQ7u.js">
+    <link rel="modulepreload" crossorigin href="/assets/PlanWall-C-f6Y3pT.js">
+    <link rel="modulepreload" crossorigin href="/assets/device-D23wP7M8.js">
+    <link rel="modulepreload" crossorigin href="/assets/HowYouSync-Dapp86EX.js">
+    <link rel="modulepreload" crossorigin href="/assets/SyncedLine-DhhaUX9o.js">
+    <link rel="modulepreload" crossorigin href="/assets/student-v9DCTXq7.js">
+    <link rel="modulepreload" crossorigin href="/assets/pdfText-Dd94il2O.js">
+    <link rel="modulepreload" crossorigin href="/assets/pptx-FoGg_gbH.js">
+    <link rel="modulepreload" crossorigin href="/assets/ingest-DMqOqL6s.js">
+    <link rel="modulepreload" crossorigin href="/assets/db-CRcUd1x9.js">
+    <link rel="modulepreload" crossorigin href="/assets/run-BifIaCuk.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-0LlD2TKP.css">
+  </head>
+  <body>
+    <div id="root"><div class="prerendered"><link rel="preload" as="image" href="./reel/halo-plus-calm.jpg"/><div class="landing lp"><header class="lp-head"><a class="brand" href="#/" aria-label="Halo+"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" data-icon="" width="24" height="24"><path d="M19.73 9.93A8 8 0 1 1 14.07 4.27" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round"></path><path d="M17.66 3.5v5.7M14.8 6.35h5.7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path></svg></span><span class="brand-text">Halo+</span></a><nav class="lp-nav" aria-label="Site"><a class="lp-link" href="./updates/">Updates</a><a class="btn" href="#/login">Log in</a><a class="btn primary" href="https://chromewebstore.google.com/detail/halo+/dookepepmkkakmepjabldmgfmfhfcmnn">Add to Chrome</a></nav></header><section class="lp-onphone" aria-label="Make your free Halo+ account"><div class="lp-onphone-card"><h2 class="lp-onphone-title">The Halo <span class="lp-onphone-gold">upgrade</span> every GCU student needs.</h2><p class="lp-onphone-lede">What’s due next on every class, all your classes on one calendar, and search, right on Halo.</p><button type="button" class="lp-onphone-google lp-onphone-main"><svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path></svg><span>Continue with Google</span></button><div class="lp-onphone-or" role="separator"><span>or sign up with email</span></div><form class="lp-onphone-mail" autoComplete="on"><label class="visually-hidden" for="lp-onphone-email">Your email</label><input id="lp-onphone-email" class="input" type="email" inputMode="email" autoComplete="email" enterKeyHint="next" autoCapitalize="none" autoCorrect="off" spellCheck="false" placeholder="Your email" required="" name="email" value=""/><button type="submit" class="btn block lp-onphone-big lp-onphone-email-btn">Sign up with email</button></form><p class="lp-onphone-why"><b>Takes 10 seconds.</b> Free. Join hundreds of GCU students already using it.</p><p class="lp-onphone-signin">Already have an account? <a href="#/login">Sign in</a></p></div><div class="lp-onphone-reel"></div></section><section class="lp-hero lp-hero-ext" aria-label="What Halo+ is"><div class="lp-copy"><h1 class="lp-title lp-title-hook">The Halo <span class="lp-gold">upgrade</span> every GCU student needs.</h1><p class="lp-sub">Halo+ adds what Halo is missing, right on Halo’s own pages: what’s next on every class, one calendar, search, and more.</p><div class="lp-cta"><a class="btn primary lp-big" href="https://chromewebstore.google.com/detail/halo+/dookepepmkkakmepjabldmgfmfhfcmnn">Add to Chrome, it’s free</a><a class="btn lp-big" href="#/login">Log in</a></div><p class="lp-trust"><b>Takes 10 seconds.</b> Free. Join hundreds of GCU students already using it.</p></div><div class="lp-reel-frame lp-reel-hero"><img src="./reel/halo-plus-calm.jpg" width="540" height="960" alt="" aria-hidden="true"/></div></section><section class="lp-features" aria-label="On Halo"><article class="lp-feature"><div class="lp-feature-copy"><h3 class="lp-feature-title"><span>What’s</span><span class="lp-gold"> next,</span><span> on</span><span> every</span><span> class.</span></h3><p>Your grade and the next things due, right on Halo’s own class cards. Done work drops off by itself.</p></div><figure class="lp-shot"><img src="./shots/class-card.jpg" width="464" height="337" alt="A class card: the grade, and NEXT with three assignments and when they’re due" loading="lazy" decoding="async"/></figure></article><article class="lp-feature" data-flip="true"><div class="lp-feature-copy"><h3 class="lp-feature-title"><span>Every</span><span> class,</span><span class="lp-gold"> one</span><span> calendar.</span></h3><p>All your classes on Halo’s calendar, each in its own color, so a busy week is obvious at a glance.</p></div><figure class="lp-shot"><img src="./shots/calendar.jpg" width="479" height="319" alt="Halo’s calendar showing six days with assignments from every class" loading="lazy" decoding="async"/></figure></article><article class="lp-feature"><div class="lp-feature-copy"><h3 class="lp-feature-title"><span class="lp-gold">⌘K.</span><span> Find</span><span> anything.</span></h3><p>Every class, assignment and file, from any Halo page. Ctrl+K on Windows.</p></div><figure class="lp-shot"><img src="./shots/search.jpg" width="488" height="488" alt="Halo+ search with results for “topic 3”" loading="lazy" decoding="async"/></figure></article><article class="lp-feature" data-flip="true"><div class="lp-feature-copy"><h3 class="lp-feature-title"><span class="lp-gold">Rubrics,</span><span> right</span><span> under</span><span> the</span><span> assignment.</span></h3><p>No new tab, no hunting. Every criterion and level, one tap away.</p></div><figure class="lp-shot"><img src="./shots/rubric.jpg" width="488" height="320" alt="A rubric shown under its assignment on Halo" loading="lazy" decoding="async"/></figure></article><article class="lp-feature"><div class="lp-feature-copy"><h3 class="lp-feature-title"><span class="lp-gold">Confetti</span><span> when</span><span> you</span><span> submit.</span></h3><p>The moment Halo confirms it: checked off, your points, a little celebration.</p></div><figure class="lp-shot" data-confetti="true"><img src="./shots/toast.jpg" width="320" height="78" alt="“Lab 4: Photosynthesis done, +30 pts”" loading="lazy" decoding="async"/></figure></article><article class="lp-feature" data-flip="true"><div class="lp-feature-copy"><h3 class="lp-feature-title"><span>Never</span><span> miss</span><span> a</span><span class="lp-gold"> hidden</span><span> due</span><span> date.</span></h3><p>Teachers move dates and add steps in announcements. <b>Halo+ Max</b> reads every one and puts the change on the assignment. Max is <b>$0.99 a month</b>; everything above is free.</p></div><figure class="lp-shot"><img src="./shots/max-line.jpg" width="528" height="394" alt="An assignment on Halo with the Halo+ line “Due date moved to Mon, Nov 2 (was Sat, Oct 31)”" loading="lazy" decoding="async"/></figure></article></section><section class="lp-bonus" aria-label="Plus your own Halo+ app"><div class="lp-copy"><p class="lp-eyebrow">Bonus</p><h2 class="lp-h2">Plus your own Halo+ app.</h2><p class="lp-sub">Now, Calendar and Classes, on your phone too. Your whole week in your pocket, kept current from Halo. Add it to your Home Screen and it works like an app. Try it right here:</p></div><div class="lp-live" aria-label="Try Halo+: check off the top item"><div class="now lp-now"><header class="now-head"><div><p class="eyebrow">Maya’s Tuesday</p><h2 class="now-title">3 things need you.</h2></div><div class="now-ring" aria-hidden="true"><svg class="ring" viewBox="0 0 44 44" width="48" height="48" data-done="false"><circle class="ring-track" cx="22" cy="22" r="18"></circle><circle class="ring-fill" cx="22" cy="22" r="18" stroke-dasharray="113.1" stroke-dashoffset="113.1"></circle></svg><span class="now-ring-label">0/3</span></div></header><section class="hero lp-hero-card" data-state="work" style="--course:#3B7DD8"><div class="hero-top"><span class="hero-eyebrow"><span class="chip" style="--course:#3B7DD8"><span class="dot"></span>BIO-181L</span><span class="hero-kind">Quiz</span></span></div><h3 class="hero-title">Lab 4 Prelab Quiz</h3><p class="hero-why">Due before lab. Only Dr. Morales’s announcement says so.</p><p class="hero-meta"><span class="pill">10 pts</span><span class="pill">~20m</span><span class="pill">due 11:59 PM</span></p><div class="hero-actions"><button type="button" class="btn primary lp-done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-icon="" width="14" height="14"><path d="M5 12.5 10 17 19 7"></path></svg> Done</button><span class="lp-try" aria-hidden="true">← try it</span></div></section><section class="then"><h3 class="section-title">Then</h3><ul class="item-list"><li class="lp-rise"><span class="row" style="--course:#7A5AD0"><span class="dot" aria-hidden="true"></span><span class="row-body"><span class="row-title">Quiz 2: Derivatives</span><span class="row-meta">MAT-250 · Thu</span></span></span></li><li class="lp-rise"><span class="row" style="--course:#D9534F"><span class="dot" aria-hidden="true"></span><span class="row-body"><span class="row-title">Topic 3 DQ 1: Memory</span><span class="row-meta">PSY-102 · Wed</span></span></span></li></ul></section></div></div></section><section class="lp-close" aria-label="Start"><h2 class="lp-h2">Your next deadline is already in Halo.</h2><a class="btn primary lp-big" href="https://chromewebstore.google.com/detail/halo+/dookepepmkkakmepjabldmgfmfhfcmnn">Add to Chrome, it’s free</a><p class="lp-trust"><b>Takes 10 seconds.</b> Free. Join hundreds of GCU students already using it.</p></section><section class="landing-section landing-faq" aria-label="Questions"><h2 class="lp-h2">Questions</h2><dl><div><dt>Does it need my GCU password?</dt><dd>No, and it never asks. The Chrome extension reads only your own classes, grades and announcements, and only while you’re already logged in to Halo in that browser. It sends them to your own Halo+ account, and its code is public so anyone can check.</dd></div><div><dt>Is this from GCU?</dt><dd>No. Halo+ is an independent planner made by a student, not affiliated with Grand Canyon University.</dd></div><div><dt>What happens to my data?</dt><dd>It is yours. It is never sold or shared with advertisers, and you can export or delete all of it any time.</dd></div><div><dt>Does it work on my phone?</dt><dd>Yes. Add it to your Home Screen and it works like an app.</dd></div></dl></section><footer class="landing-foot"><p>Halo+ is independent and not affiliated with GCU. No GCU marks are used.</p><nav><a class="landing-help" href="./help/">Help</a> · <a href="./updates/">Updates</a> · <a href="./plans/">Plans</a> · <a href="https://chromewebstore.google.com/detail/halo+/dookepepmkkakmepjabldmgfmfhfcmnn" target="_blank" rel="noopener">Chrome extension</a> · <a href="mailto:richards.georger@gmail.com?subject=Halo%2B">Contact</a> · <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="https://github.com/richardsgeorger-collab/school-dashboard" rel="noopener">Code</a> · <a href="#/login">Log in</a></nav></footer></div></div></div>
+  </body>
+</html>

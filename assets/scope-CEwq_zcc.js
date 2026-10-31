@@ -1,0 +1,1 @@
+var e=`school-dashboard:db-owner`;function t(e){try{return localStorage.getItem(e)}catch{return null}}function n(){let n=t(`school-dashboard:owner`),r=t(e);return!n||n===`local`||!r||r===n?``:`-${n.slice(0,8)}`}function r(n){if(!t(e))try{localStorage.setItem(e,n)}catch{}}export{n,r as t};
