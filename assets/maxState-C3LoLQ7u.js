@@ -1,0 +1,1 @@
+var e=(e=new Date().toISOString())=>({startedAt:e,step:`welcome`,doneAt:null}),t=e=>!!e&&!e.doneAt&&e.step!==`done`;export{t as n,e as t};
